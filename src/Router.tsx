@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { Event } from './pages/Event';
 import { Subscribe } from './pages/Subscribe';
 
-export function Router() {
+export const Router = () => {
   return (
     <Routes>
         <Route path='/' element={<Subscribe />} />
