@@ -1,0 +1,47 @@
+.container {
+  @apply min-h-screen bg-blur bg-cover bg-no-repeat flex flex-col items-center;
+}
+
+.content {
+  @apply w-full max-w-[1100px] bg-icon bg-contain bg-center bg-no-repeat flex items-center justify-between mt-20 mx-auto;
+}
+
+.welcome {
+  @apply max-w-[640px] h-[300px];
+}
+
+.welcome_title {
+  @apply mt-8 text-[2.5rem] leading-tight;
+}
+
+.welcome_highlight {
+  @apply "text-blue-500";
+}
+
+.welcome_description {
+  @apply mt-4 text-gray-200 leading-relaxed;
+}
+
+.subscribe {
+  @apply p-8 bg-gray-700 rounded border border-gray-500;
+}
+
+.subscribe_title {
+  @apply text-2xl mb-6 block;
+}
+
+.subscribe_form {
+  @apply flex flex-col gap-2 w-full;
+}
+
+.subscribe_input {
+  @apply bg-gray-900 rounded px-5 h-14;
+}
+
+.subscribe_submit {
+  @apply mt-4 bg-green-500 uppercase py-4 rounded font-bold text-small hover:bg-green-700 transition-colors disabled:opacity-50;
+}
+
+.image {
+  @apply mt-5;
+}
