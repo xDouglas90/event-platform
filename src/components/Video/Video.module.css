@@ -1,0 +1,91 @@
+.content {
+    @apply bg-black flex justify-center;
+}
+
+.video {
+    @apply h-full w-full max-w-[1100px] max-h-[60vh] aspect-video;
+}
+
+.info {
+    @apply p-8 max-w-[1100px] mx-auto;
+}
+
+.info_header {
+    @apply flex items-start gap-16;
+}
+
+.container, .info_container {
+    @apply flex-1;
+}
+
+.video_title {
+    @apply text-2xl font-bold;
+}
+
+.video_description {
+    @apply mt-4 text-gray-200 leading-relaxed;
+}
+
+.creator {
+    @apply flex items-center gap-4 mt-6;
+}
+
+.creator_avatar {
+    @apply h-16 w-16 rounded-full border-2 border-blue-500;
+}
+
+.creator_content {
+    @apply leading-relaxed;
+}
+
+.creator_name {
+    @apply font-bold text-2xl block;
+}
+
+.creator_bio {
+    @apply text-gray-200 text-sm block;
+}
+
+.ctas_container {
+    @apply flex flex-col gap-4;
+}
+
+.cta {
+    @apply p-4 text-sm rounded font-bold uppercase flex items-center gap-2 justify-center;
+}
+
+.community_cta {
+    @apply  bg-green-500 hover:bg-green-700 transition-colors;
+}
+
+.challenge_cta {
+    @apply border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-gray-900 transition-colors;
+}
+
+.complementary {
+    @apply gap-8 mt-20 grid grid-cols-2;
+}
+
+.complementary_item {
+    @apply bg-gray-700 rounded overflow-hidden flex items-stretch gap-6 hover:bg-gray-600 transition-colors;
+}
+
+.complementary_icon {
+    @apply bg-green-700 h-full p-6 flex items-center;
+}
+
+.complementary_content {
+    @apply py-6 leading-relaxed;
+}
+
+.complementary_title {
+    @apply text-2xl;
+}
+
+.complementary_description {
+    @apply text-sm text-gray-200 mt-2;
+}
+
+.complementary_cta {
+    @apply h-full p-6 flex items-center;
+}

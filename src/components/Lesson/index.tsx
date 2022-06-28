@@ -1,7 +1,9 @@
-import { CheckCircle, Lock } from 'phosphor-react';
 import { isPast, format } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
 import { Link, useParams } from 'react-router-dom';
+import { CheckCircle, Lock } from 'phosphor-react';
+
+import styles from './Lesson.module.css';
 import classNames from 'classnames';
 
 interface LessonProps {
@@ -29,20 +31,19 @@ export const Lesson = (props: LessonProps) => {
 
       <div
         className={classNames(
-          'rounded border border-gray-500 p-4 mt-2 group-hover:border-green-500',
+          `${styles.content}`,
           {
             'bg-green-500': isActiveLesson,
           }
         )}
       >
-        <header className="flex items-center justify-between">
+        <header className={styles.header}>
           {isLessonAvailable ? (
             <span
               className={classNames(
-                'text-sm font-medium flex items-center gap-2',
+                `${styles.info}`,
                 {
-                  'text-blue-500': !isActiveLesson,
-                  'text-white': isActiveLesson,
+                  [`${styles.info_active}`]: isActiveLesson,
                 }
               )}
             >
@@ -50,29 +51,25 @@ export const Lesson = (props: LessonProps) => {
               Conteúdo liberado
             </span>
           ) : (
-            <span className="text-sm text-orange-500 font-medium flex items-center gap-2">
+            <span className={styles.info_blocked}>
               <Lock size={20} />
               Em breve
             </span>
           )}
 
           <span
-            className={classNames(
-              'text-xs rounded px-2 py-[0.125rem] text-white border',
-              {
-                'border-white': isActiveLesson,
-                'border-green-300': !isActiveLesson,
+            className={classNames(`${styles.type}`,{
+                [`${styles.type_active}`]: isActiveLesson
               }
             )}
           >
-            {props.type === 'live' ? 'AO VIVO' : 'AULA PŔATICA'}
+            {props.type === 'live' ? 'AO VIVO' : 'AULA PRÁTICA'}
           </span>
         </header>
 
         <strong
-          className={classNames('mt-5 block', {
-            'text-white': isActiveLesson,
-            'text-gray-200': !isActiveLesson,
+          className={classNames(`${styles.title}`, {
+            [`${styles.title_active}`]: isActiveLesson
           })}
         >
           {props.title}

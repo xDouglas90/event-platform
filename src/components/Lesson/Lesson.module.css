@@ -1,0 +1,35 @@
+.content {
+    @apply rounded border border-gray-500 p-4 mt-2 group-hover:border-green-500;
+}
+
+.header {
+    @apply flex items-center justify-between;
+}
+
+.info {
+    @apply text-sm font-medium flex items-center gap-2 text-blue-500;
+}
+
+.info_active {
+    @apply text-white;
+}
+
+.info_blocked {
+    @apply text-sm text-orange-500 font-medium flex items-center gap-2;
+}
+
+.type {
+    @apply text-xs rounded px-2 py-[0.125rem] text-white border border-green-300;
+}
+
+.type_active {
+    @apply border-white;
+}
+
+.title {
+    @apply mt-5 block text-gray-200;
+}
+
+.title_active {
+    @apply text-white;
+}

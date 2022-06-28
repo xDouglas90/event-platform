@@ -1,5 +1,7 @@
-import { useGetLessonsQuery } from '../graphql/generated';
-import { Lesson } from './Lesson';
+import { useGetLessonsQuery } from '../../graphql/generated';
+import { Lesson } from '../Lesson';
+
+import styles from './Sidebar.module.css';
 
 export const Sidebar = () => {
   const { data } = useGetLessonsQuery();
@@ -13,12 +15,12 @@ export const Sidebar = () => {
   }
 
   return (
-    <aside className="w-[348px] bg-gray-700 p-6 border-l border-gray-600">
-      <span className="font-bold text-2xl pb-6 mb-6 border-b border-gray-500 block">
+    <aside className={styles.container}>
+      <span className={styles.title}>
         Cronograma de aulas
       </span>
 
-      <section className="flex flex-col gap-8">
+      <section className={styles.content}>
         {data?.lessons.map((lesson) => (
           <Lesson
             key={lesson.id}

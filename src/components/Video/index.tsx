@@ -1,3 +1,4 @@
+import { useGetLessonBySlugQuery } from '../../graphql/generated';
 import { DefaultUi, Player, Youtube } from '@vime/react';
 import {
   CaretRight,
@@ -6,8 +7,10 @@ import {
   Lightning,
 } from 'phosphor-react';
 
+import styles from './Video.module.css';
+import cx from 'classnames';
 import '@vime/core/themes/default.css';
-import { useGetLessonBySlugQuery } from '../graphql/generated';
+
 
 interface VideoProps {
   lessonSlug: string;
@@ -22,16 +25,16 @@ export const Video = ({ lessonSlug }: VideoProps) => {
 
   if (!data || !data.lesson) {
     return (
-      <div className="flex-1">
+      <div className={styles.container}>
         <p>Carregando...</p>
       </div>
     );
   }
 
   return (
-    <section className="flex-1">
-      <div className="bg-black flex justify-center">
-        <div className="h-full w-full max-w-[1100px] max-h-[60vh] aspect-video">
+    <section className={styles.container}>
+      <div className={styles.content}>
+        <div className={styles.video}>
           <Player>
             <Youtube videoId={data.lesson.videoId} />
             <DefaultUi />
@@ -39,27 +42,27 @@ export const Video = ({ lessonSlug }: VideoProps) => {
         </div>
       </div>
 
-      <article className="p-8 max-w-[1100px] mx-auto">
-        <header className="flex items-start gap-16">
-          <div className="flex-1">
-            <h1 className="text-2xl font-bold">{data.lesson.title}</h1>
-            <p className="mt-4 text-gray-200 leading-relaxed">
+      <article className={styles.info}>
+        <header className={styles.info_header}>
+          <div className={styles.info_container}>
+            <h1 className={styles.video_title}>{data.lesson.title}</h1>
+            <p className={styles.video_description}>
               {data.lesson.description}
             </p>
 
             {data.lesson.teacher && (
-              <div className="flex items-center gap-4 mt-6">
+              <div className={styles.creator}>
                 <img
-                  className="h-16 w-16 rounded-full border-2 border-blue-500"
+                  className={styles.creator_avatar}
                   src={data.lesson.teacher.avatarURL}
                   alt={`Avatar do professor ${data.lesson.teacher.name}`}
                 />
 
-                <div className="leading-relaxed">
-                  <strong className="font-bold text-2xl block">
+                <div className={styles.creator_content}>
+                  <strong className={styles.creator_name}>
                     {data.lesson.teacher.name}
                   </strong>
-                  <span className="text-gray-200 text-sm block">
+                  <span className={styles.creator_bio}>
                     {data.lesson.teacher.bio}
                   </span>
                 </div>
@@ -67,9 +70,9 @@ export const Video = ({ lessonSlug }: VideoProps) => {
             )}
           </div>
 
-          <div className="flex flex-col gap-4">
+          <div className={styles.ctas_container}>
             <a
-              className="p-4 text-sm bg-green-500 flex items-center rounded font-bold uppercase gap-2 justify-center hover:bg-green-700 transition-colors"
+              className={cx(styles.cta, styles.community_cta)}
               href=""
               target="_blank"
               rel="noopener noreferrer"
@@ -78,7 +81,7 @@ export const Video = ({ lessonSlug }: VideoProps) => {
               Comunidade do Discord
             </a>
             <a
-              className="p-4 text-sm border border-blue-500 text-blue-500 flex items-center rounded font-bold uppercase gap-2 justify-center hover:bg-blue-500 hover:text-gray-900 transition-colors"
+              className={cx(styles.cta, styles.challenge_cta)}
               href=""
               target="_blank"
               rel="noopener noreferrer"
@@ -89,41 +92,41 @@ export const Video = ({ lessonSlug }: VideoProps) => {
           </div>
         </header>
 
-        <footer className="gap-8 mt-20 grid grid-cols-2">
+        <footer className={styles.complementary}>
           <a
-            href="http://"
-            className="bg-gray-700 rounded overflow-hidden flex items-stretch gap-6 hover:bg-gray-600 transition-colors"
+            href="#"
+            className={styles.complementary_item}
           >
-            <div className="bg-green-700 h-full p-6 flex items-center">
+            <div className={styles.complementary_icon}>
               <FileArrowDown size={40} />
             </div>
-            <div className="py-6 leading-relaxed">
-              <strong className="text-2xl">Material complementar</strong>
-              <p className="text-sm text-gray-200 mt-2">
+            <div className={styles.complementary_content}>
+              <strong className={styles.complementary_title}>Material complementar</strong>
+              <p className={styles.complementary_description}>
                 Acesse o material complementar para acelerar o seu
                 desenvolvimento
               </p>
             </div>
-            <div className="h-full p-6 flex items-center">
+            <div className={styles.complementary_cta}>
               <CaretRight size={24} />
             </div>
           </a>
 
           <a
-            href="http://"
-            className="bg-gray-700 rounded overflow-hidden flex items-stretch gap-6 hover:bg-gray-600 transition-colors"
+            href="#"
+            className={styles.complementary_item}
           >
-            <div className="bg-green-700 h-full p-6 flex items-center">
+            <div className={styles.complementary_icon}>
               <FileArrowDown size={40} />
             </div>
-            <div className="py-6 leading-relaxed">
-              <strong className="text-2xl">Wallpapers exclusivos</strong>
-              <p className="text-sm text-gray-200 mt-2">
+            <div className={styles.complementary_content}>
+              <strong className={styles.complementary_title}>Wallpapers exclusivos</strong>
+              <p className={styles.complementary_description}>
                 Baixe wallpapers exclusivos do Ignite Lab e personalize sua
                 máquina
               </p>
             </div>
-            <div className="h-full p-6 flex items-center">
+            <div className={styles.complementary_cta}>
               <CaretRight size={24} />
             </div>
           </a>
