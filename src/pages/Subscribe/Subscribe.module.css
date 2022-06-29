@@ -15,7 +15,7 @@
 }
 
 .welcome_highlight {
-  @apply "text-blue-500";
+  @apply text-blue-500;
 }
 
 .welcome_description {
@@ -39,7 +39,7 @@
 }
 
 .subscribe_submit {
-  @apply mt-4 bg-green-500 uppercase py-4 rounded font-bold text-small hover:bg-green-700 transition-colors disabled:opacity-50;
+  @apply mt-4 bg-green-500 uppercase py-4 rounded font-bold text-sm hover:bg-green-700 transition-colors disabled:opacity-50;
 }
 
 .image {
