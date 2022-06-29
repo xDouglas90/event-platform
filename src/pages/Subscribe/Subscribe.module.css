@@ -39,7 +39,11 @@
 }
 
 .subscribe_submit {
-  @apply mt-4 bg-green-500 uppercase py-4 rounded font-bold text-sm hover:bg-green-700 transition-colors disabled:opacity-50;
+  @apply mt-4 bg-green-500 uppercase py-4 rounded font-bold text-sm hover:bg-green-700 transition-colors;
+}
+
+.subscribe_submit_disabled {
+  @apply disabled:opacity-50 disabled:cursor-not-allowed;
 }
 
 .image {

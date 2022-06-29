@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Logo } from '../../components';
 import { useCreateSubscriberMutation } from '../../graphql/generated';
 
+import classNames from 'classnames';
 import styles from './Subscribe.module.css';
 
 export const Subscribe = () => {
@@ -34,8 +35,11 @@ export const Subscribe = () => {
 
           <h1 className={styles.welcome_title}>
             Construa uma{' '}
-            <strong className={styles.welcome_highlight}>aplicação completa</strong>, do
-            zero, com <strong className={styles.welcome_highlight}>React</strong>
+            <strong className={styles.welcome_highlight}>
+              aplicação completa
+            </strong>
+            , do zero, com{' '}
+            <strong className={styles.welcome_highlight}>React</strong>
           </h1>
 
           <p className={styles.welcome_description}>
@@ -50,10 +54,7 @@ export const Subscribe = () => {
             Inscreva-se gratuitamente
           </strong>
 
-          <form
-            onSubmit={handleSubscribe}
-            className={styles.subscribe_form}
-          >
+          <form onSubmit={handleSubscribe} className={styles.subscribe_form}>
             <input
               className={styles.subscribe_input}
               type="text"
@@ -70,7 +71,7 @@ export const Subscribe = () => {
             />
 
             <button
-              className={styles.subscribe_submit}
+              className="mt-4 bg-green-500 uppercase py-4 rounded font-bold text-sm hover:bg-green-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               type="submit"
               disabled={loading}
             >
